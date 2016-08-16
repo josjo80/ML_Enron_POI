@@ -41,12 +41,6 @@ cleaned_data = outlierCleaner( df )
 
 data_dict.pop("TOTAL", 0)
 data_dict.pop('THE TRAVEL AGENCY IN THE PARK', 0)
-data_dict.pop("BECK SALLY W", 0)
-data_dict.pop("KAMINSKI WINCENTY J", 0)
-data_dict.pop("KEAN STEVEN J", 0)
-data_dict.pop("LAVORATO JOHN J", 0)
-data_dict.pop('BHATNAGAR SANJAY', 0)
-data_dict.pop('SHAPIRO RICHARD S', 0)
 
 
 ### Task 3: Create new feature(s)
@@ -142,9 +136,9 @@ pipeline = Pipeline(steps=[('scaler', Min_Max_scaler), ('kbest', kbest), ('GNB',
 cv = StratifiedShuffleSplit(labels, 100, random_state = 42)
 
 #Results - Outliers = TOTAL, 'THE TRAVEL AGENCY IN THE PARK'
-#Pipeline(steps=[('scaler', MinMaxScaler(copy=True, feature_range=(0, 1))), ('kbest', SelectKBest(k=5, score_func=<function f_classif at 0x117403a28>)), ('GNB', GaussianNB())])
-#	Accuracy: 0.85033	Precision: 0.42562	Recall: 0.35050	F1: 0.38443	F2: 0.36333
-#	Total predictions: 15000	True positives:  701	False positives:  946	False negatives: 1299	True negatives: 12054
+#Pipeline(steps=[('scaler', MinMaxScaler(copy=True, feature_range=(0, 1))), ('kbest', SelectKBest(k=8, score_func=<function f_classif at 0x116701de8>)), ('GNB', GaussianNB())])
+#	Accuracy: 0.84650	Precision: 0.45370	Recall: 0.36500	F1: 0.40454	F2: 0.37985
+#	Total predictions: 14000	True positives:  730	False positives:  879	False negatives: 1270	True negatives: 11121
 
 #Results - Outliers = All
 #Pipeline(steps=[('scaler', MinMaxScaler(copy=True, feature_range=(0, 1))), ('kbest', SelectKBest(k=8, score_func=<function f_classif at 0x11677c758>)), ('GNB', GaussianNB())])
